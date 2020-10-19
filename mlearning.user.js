@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         浪潮大学自动刷视频  M—Learning
+// @name         浪潮大学自动刷视频 M—Learning
 // @namespace    cn.shaojs.tampermonkey.mlearning
 // @version      1.0.1
 // @description  浪潮大学视频播放 文档浏览
@@ -18,7 +18,7 @@
 // @match        http://edu.inspur.com/sty/index.htm
 // @grant        GM_xmlhttpRequest
 // @grant        unsafeWindow
-// @connect      
+// @connect      https://github.com/shaojs/tampermonkey
 // @require      http://code.jquery.com/jquery-1.11.0.min.js
 // ==/UserScript==
 
