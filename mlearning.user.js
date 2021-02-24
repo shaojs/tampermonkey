@@ -44,12 +44,12 @@
     } else if (path.match(/^\/plan.*/g)) { //任务列表页 mit/myhomeworkexprience
         console.log('任务列表页...');
         // window.setTimeout(function(){
-        //     if ($(".hand > td").size() == 0){
+        //     if ($(".hand > td").length == 0){
         //         console.log("本页所有任务已完成");
         //         GoBack();
         //     }
         // }, short_scan_seconds * 1000);
-        if ($(".hand > td").size() == 0){
+        if ($(".hand > td").length == 0){
             console.log("本页所有任务已完成，返回上一页");
             window.location.href=document.referrer; // 返回上一级并刷新
         }
@@ -76,7 +76,7 @@
         // 学习中心，任务列表，点击所有的：立即学习
         console.log('任务列表页...');
 
-        // if ($("span.text-link.hand").size() == 0){
+        // if ($("span.text-link.hand").length == 0){
         //     console.log("本页所有任务已完成，返回上一页");
         //     window.location.href=document.referrer; // 返回上一级并刷新
         // }
@@ -96,13 +96,13 @@
         console.log('任务列表页...');
 
         // window.setTimeout(function(){
-        //     if ($("div.picstudying").size() == 0){
+        //     if ($("div.picstudying").length == 0){
         //         console.log("本页所有任务已完成");
         //         GoBack();
         //     }
         // }, short_scan_seconds * 1000);
 
-        if ($("div.picstudying,div.picnostart.last").size() == 0){
+        if ($("div.picstudying,div.picnostart.last").length == 0){
             console.log("本页所有任务已完成，返回上一页");
             window.location.href=document.referrer; // 返回上一级并刷新
         }
