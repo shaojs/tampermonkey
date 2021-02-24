@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         浪潮大学自动刷视频 M—Learning
 // @namespace    cn.shaojs.tampermonkey.mlearning
-// @version      1.0.3
+// @version      1.0.2
 // @description  浪潮大学视频播放 文档浏览
 // @author       shaojs
 // @icon         https://picobd.yunxuetang.cn/sys/18653182312/images/202009/05d332081dbc4370b1dd7b184def21de.ico
@@ -19,7 +19,7 @@
 // @grant        GM_xmlhttpRequest
 // @grant        unsafeWindow
 // @connect      https://github.com/shaojs/tampermonkey
-// @require      http://code.jquery.com/jquery-1.11.0.min.js
+// @require      https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js
 // ==/UserScript==
 
 (function () {
