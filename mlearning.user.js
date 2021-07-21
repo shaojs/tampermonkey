@@ -1,21 +1,21 @@
 // ==UserScript==
 // @name         浪潮大学自动刷视频 M—Learning
 // @namespace    cn.shaojs.tampermonkey.mlearning
-// @version      1.0.2
+// @version      1.0.4
 // @description  浪潮大学视频播放 文档浏览
 // @author       shaojs
 // @icon         https://picobd.yunxuetang.cn/sys/18653182312/images/202009/05d332081dbc4370b1dd7b184def21de.ico
-// @match        http://edu.inspur.com/plan/*.html
-// @match        http://edu.inspur.com/kng/plan/document/*
-// @match        http://edu.inspur.com/kng/view/document/*
-// @match        http://edu.inspur.com/kng/plan/video/*
-// @match        http://edu.inspur.com/kng/view/video/*
-// @match        http://edu.inspur.com/kng/view/package/*
-// @match        http://edu.inspur.com/kng/plan/package/*
-// @match        http://edu.inspur.com/mit/myhomeworkexprience*
-// @match        http://edu.inspur.com/kng/course/package/video/*
-// @match        http://edu.inspur.com/kng/course/package/document/*
-// @match        http://edu.inspur.com/sty/index.htm
+// @match        *://edu.inspur.com/plan/*.html
+// @match        *://edu.inspur.com/kng/plan/document/*
+// @match        *://edu.inspur.com/kng/view/document/*
+// @match        *://edu.inspur.com/kng/plan/video/*
+// @match        *://edu.inspur.com/kng/view/video/*
+// @match        *://edu.inspur.com/kng/view/package/*
+// @match        *://edu.inspur.com/kng/plan/package/*
+// @match        *://edu.inspur.com/mit/myhomeworkexprience*
+// @match        *://edu.inspur.com/kng/course/package/video/*
+// @match        *://edu.inspur.com/kng/course/package/document/*
+// @match        *://edu.inspur.com/sty/index.htm
 // @grant        GM_xmlhttpRequest
 // @grant        unsafeWindow
 // @connect      https://github.com/shaojs/tampermonkey
@@ -26,7 +26,7 @@
     const path = window.location.pathname;
     const date = new Date();
 
-    var host = "http://" + window.location.host;
+    var host = window.location.protocol+"//" + window.location.host;
 
     var short_scan_seconds = 5;
     var long_scan_seconds = 10;
@@ -43,12 +43,7 @@
         return false;
     } else if (path.match(/^\/plan.*/g)) { //任务列表页 mit/myhomeworkexprience
         console.log('任务列表页...');
-        // window.setTimeout(function(){
-        //     if ($(".hand > td").length == 0){
-        //         console.log("本页所有任务已完成");
-        //         GoBack();
-        //     }
-        // }, short_scan_seconds * 1000);
+ 
         if ($(".hand > td").length == 0){
             console.log("本页所有任务已完成，返回上一页");
             window.location.href=document.referrer; // 返回上一级并刷新
@@ -76,11 +71,6 @@
         // 学习中心，任务列表，点击所有的：立即学习
         console.log('任务列表页...');
 
-        // if ($("span.text-link.hand").length == 0){
-        //     console.log("本页所有任务已完成，返回上一页");
-        //     window.location.href=document.referrer; // 返回上一级并刷新
-        // }
-
         $("span.text-link.hand[data-localize='sys_btn_learnnow']:lt(1)").each(function(index, item){
             // str demo: StudyRowClick("/kng/view/video/743317dc35094ca9b028eb1d3df1ec88_d4853ac187124f669a97447ee3984342.html?uniqueid=637387129123048150", "VideoKnowledge", "", "True", "True", "True","")
             // 获取 /kng/view/video/743317dc35094ca9b028eb1d3df1ec88_d4853ac187124f669a97447ee3984342.html?uniqueid=637387129123048150
@@ -94,13 +84,6 @@
         });
     } else if(path.match(/^\/kng\/view\/package.*/g)){
         console.log('任务列表页...');
-
-        // window.setTimeout(function(){
-        //     if ($("div.picstudying").length == 0){
-        //         console.log("本页所有任务已完成");
-        //         GoBack();
-        //     }
-        // }, short_scan_seconds * 1000);
 
         if ($("div.picstudying,div.picnostart.last").length == 0){
             console.log("本页所有任务已完成，返回上一页");
